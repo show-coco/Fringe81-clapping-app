@@ -1,6 +1,6 @@
-import React from 'react';
-import ClpCurrentUser from './molecules/ClpCurrentUser';
-import '../assets/styles/App.css';
+import React from "react";
+import ClpCurrentUser from "./molecules/ClpCurrentUser";
+import "../assets/styles/App.css";
 
 function App() {
   return (
