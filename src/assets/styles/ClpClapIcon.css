@@ -1,0 +1,14 @@
+.ClpClapIcon {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+    fill: #3498db;
+}
