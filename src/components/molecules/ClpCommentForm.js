@@ -1,5 +1,6 @@
 import React from "react";
 import ClpIcon from "../atoms/ClpIcon";
+import "../../assets/styles/ClpCommentForm.css";
 
 class ClpCommentForm extends React.Component {
   constructor(props) {
@@ -44,15 +45,23 @@ class ClpCommentForm extends React.Component {
     });
 
     return (
-      <div>
-        <ClpIcon uid={this.state.id}></ClpIcon>
-        <select name="name" onChange={this.handleSelectChange}>
-          {options}
-        </select>
-        <form onSubmit={this.handleSubmit}>
-          <textarea value={this.state.text} onChange={this.handleInputChange} />
-          <input type="submit" value="投稿" />
-        </form>
+      <div className="ClpCommentForm">
+        <div className="user">
+          <div>
+            <ClpIcon uid={this.state.id}></ClpIcon>
+            <select name="name" onChange={this.handleSelectChange}>
+              {options}
+            </select>
+          </div>
+          <form className="comment-form" onSubmit={this.handleSubmit}>
+            <textarea
+              value={this.state.text}
+              onChange={this.handleInputChange}
+              placeholder="あなたの気持ち相手に伝えよう！"
+            />
+            <input type="submit" value="投稿" />
+          </form>
+        </div>
       </div>
     );
   }
