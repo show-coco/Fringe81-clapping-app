@@ -1,4 +1,5 @@
 import React from "react";
+import "../../assets/styles/ClpIcon.css"
 
 function ClpIcon(props) {
   return (
@@ -6,6 +7,7 @@ function ClpIcon(props) {
       <img
         src={require(`../../assets/images/icon${props.uid}.png`)}
         alt="icon"
+        className="icon"
       />
     </div>
   );

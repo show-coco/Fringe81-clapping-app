@@ -1,5 +1,6 @@
 import React from "react";
 import ClpIcon from "../atoms/ClpIcon";
+import "../../assets/styles/ClpCurrentUser.css";
 /* eslint no-unused-expressions: "off" */
 
 class ClpCurrentUser extends React.Component {
@@ -31,15 +32,20 @@ class ClpCurrentUser extends React.Component {
     });
 
     return (
-      <div>
+      <div className="ClpCurrentUser">
         <h1>Hello React</h1>
-        <select name="name" onChange={this.handleChange}>
-          {options}
-        </select>
-        <p>{this.state.name}</p>
-        <p>{this.users[this.state.id].canClapNum}</p>
-        <p>{this.users[this.state.id].clappedNum}</p>
-        <ClpIcon uid={this.state.id}></ClpIcon>
+        <div className="user">
+          <div>
+            <ClpIcon uid={this.state.id}></ClpIcon>
+            <select name="name" onChange={this.handleChange}>
+              {options}
+            </select>
+          </div>
+          <div className="user-info">
+            拍手できる: {this.users[this.state.id].canClapNum}　 拍手された:
+            {this.users[this.state.id].clappedNum}
+          </div>
+        </div>
       </div>
     );
   }
