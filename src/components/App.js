@@ -1,6 +1,7 @@
 import React from "react";
 import ClpPostForm from "./organisms/ClpPostForm";
-import "../assets/styles/App.css";
+import "../assets/styles/App.css"; 
+/* eslint no-unused-expressions: "off" */
 
 const Users = [
   {
@@ -31,6 +32,9 @@ const Users = [
 
 function App() {
   localStorage.setItem("users", JSON.stringify(Users));
+  !localStorage.getItem("posts")
+    ? localStorage.setItem("posts", JSON.stringify([]))
+    : "";
   const users = JSON.parse(localStorage.getItem("users"));
 
   return (

@@ -26,7 +26,7 @@ class ClpPostForm extends React.Component {
   handleFromUserChange(event) {
     const newFromUser = Object.assign({}, this.state.fromUser);
     newFromUser.id = event.target.value;
-    newFromUser.name = this.users[event.target.value].name
+    newFromUser.name = this.users[event.target.value].name;
     this.setState({
       fromUser: newFromUser
     });
@@ -35,7 +35,7 @@ class ClpPostForm extends React.Component {
   handleToUserChange(event) {
     const newToUser = Object.assign({}, this.state.toUser);
     newToUser.id = event.target.value;
-    newToUser.name = this.users[event.target.value].name
+    newToUser.name = this.users[event.target.value].name;
     this.setState({
       toUser: newToUser
     });
@@ -45,12 +45,22 @@ class ClpPostForm extends React.Component {
     const newToUser = Object.assign({}, this.state.toUser);
     newToUser.text = event.target.value;
     this.setState({
-        toUser: newToUser
+      toUser: newToUser
     });
   }
 
   handleSubmit(event) {
-    alert(`${this.state.fromUser.name}が${this.state.toUser.name}に${this.state.toUser.text}と賞賛しています`);
+    alert(
+      `${this.state.fromUser.name}が${this.state.toUser.name}に${this.state.toUser.text}と賞賛しています`
+    );
+    let posts = JSON.parse(localStorage.getItem("posts"));
+    const post = {
+        toUserId: this.state.toUser.id,
+        fromUserId: this.state.fromUser.id,
+        text: this.state.toUser.text
+    };
+    posts.push(post)
+    localStorage.setItem("posts", JSON.stringify(posts));
     event.preventDefault();
   }
 
