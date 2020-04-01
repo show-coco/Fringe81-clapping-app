@@ -3,9 +3,39 @@ import ClpCurrentUser from "./molecules/ClpCurrentUser";
 import "../assets/styles/App.css";
 
 function App() {
+  const Users = [
+    {
+      id: 0,
+      name: "Nakata",
+      canClapNum: 100,
+      clappedNum: 0
+    },
+    {
+      id: 1,
+      name: "Rachel",
+      canClapNum: 100,
+      clappedNum: 0
+    },
+    {
+      id: 2,
+      name: "Kiyoshi",
+      canClapNum: 100,
+      clappedNum: 0
+    },
+    {
+      id: 3,
+      name: "Takada",
+      canClapNum: 100,
+      clappedNum: 0
+    }
+  ];
+
+  localStorage.setItem("users", JSON.stringify(Users));
+  const users = JSON.parse(localStorage.getItem("users"));
+
   return (
     <div className="App">
-      <ClpCurrentUser></ClpCurrentUser>
+      <ClpCurrentUser users={users}></ClpCurrentUser>
     </div>
   );
 }

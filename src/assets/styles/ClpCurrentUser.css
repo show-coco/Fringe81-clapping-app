@@ -1,0 +1,17 @@
+.ClpCurrentUser {
+  background-color: #0984e3;
+  color: white;
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info {
+    margin-left: 30px;
+}
