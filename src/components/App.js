@@ -28,7 +28,7 @@ function App() {
       canClapNum: 100,
       clappedNum: 0
     }
-  ]
+  ];
 
   localStorage.setItem("users", JSON.stringify(Users));
   const users = JSON.parse(localStorage.getItem("users"));

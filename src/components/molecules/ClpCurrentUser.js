@@ -8,15 +8,15 @@ class ClpCurrentUser extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.users = props.users;
     this.state = {
-      id:  this.users[0].id,
+      id: this.users[0].id,
       name: this.users[0].name
     };
   }
 
   handleChange(event) {
     this.setState({
-        id: event.target.value,
-        name: this.users[event.target.value].name,
+      id: event.target.value,
+      name: this.users[event.target.value].name
     });
   }
 

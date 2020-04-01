@@ -3,7 +3,10 @@ import React from "react";
 function ClpIcon(props) {
   return (
     <div>
-      <img src={require(`../../assets/images/icon${props.uid}.png`)} alt="icon" />
+      <img
+        src={require(`../../assets/images/icon${props.uid}.png`)}
+        alt="icon"
+      />
     </div>
   );
 }
