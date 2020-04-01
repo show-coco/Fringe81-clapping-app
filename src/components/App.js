@@ -1,7 +1,6 @@
 import React from "react";
-import ClpPostForm from "./organisms/ClpPostForm";
-import ClpPosts from "./organisms/ClpPosts";
-import "../assets/styles/App.css"; 
+import ClpHome from "./templates/ClpHome";
+import "../assets/styles/App.css";
 /* eslint no-unused-expressions: "off" */
 
 const Users = [
@@ -40,8 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <ClpPostForm users={users}></ClpPostForm>
-      <ClpPosts></ClpPosts>
+      <ClpHome users={users}></ClpHome>
     </div>
   );
 }
