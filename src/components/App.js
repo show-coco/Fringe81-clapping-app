@@ -1,5 +1,6 @@
 import React from "react";
 import ClpCurrentUser from "./molecules/ClpCurrentUser";
+import ClpCommentForm from "./molecules/ClpCommentForm";
 import "../assets/styles/App.css";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <ClpCurrentUser users={users}></ClpCurrentUser>
+      <ClpCommentForm users={users}></ClpCommentForm>
     </div>
   );
 }
