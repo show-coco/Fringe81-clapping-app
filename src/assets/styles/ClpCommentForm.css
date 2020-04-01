@@ -1,0 +1,21 @@
+.ClpCommentForm {
+  background-color: #dfe6e9;
+  width: 60%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-form {
+    margin-left: 50px;
+}
+
+textarea {
+    width: 350px;
+    height: 80px;
+}
