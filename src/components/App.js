@@ -1,5 +1,6 @@
 import React from "react";
 import ClpPostForm from "./organisms/ClpPostForm";
+import ClpPosts from "./organisms/ClpPosts";
 import "../assets/styles/App.css"; 
 /* eslint no-unused-expressions: "off" */
 
@@ -40,6 +41,7 @@ function App() {
   return (
     <div className="App">
       <ClpPostForm users={users}></ClpPostForm>
+      <ClpPosts></ClpPosts>
     </div>
   );
 }

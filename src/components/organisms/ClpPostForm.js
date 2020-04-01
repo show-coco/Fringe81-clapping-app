@@ -54,14 +54,17 @@ class ClpPostForm extends React.Component {
       `${this.state.fromUser.name}が${this.state.toUser.name}に${this.state.toUser.text}と賞賛しています`
     );
     let posts = JSON.parse(localStorage.getItem("posts"));
+    const prevId = posts.length-1;
     const post = {
+        id: prevId+1,
         toUserId: this.state.toUser.id,
         fromUserId: this.state.fromUser.id,
-        text: this.state.toUser.text
+        text: this.state.toUser.text,
+        clappedNum: 0
     };
     posts.push(post)
     localStorage.setItem("posts", JSON.stringify(posts));
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   render() {
