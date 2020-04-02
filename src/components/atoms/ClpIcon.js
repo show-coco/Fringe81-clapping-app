@@ -3,7 +3,7 @@ import "../../assets/styles/ClpIcon.css"
 
 function ClpIcon(props) {
   return (
-    <div>
+    <div className="ClpIcon">
       <img
         src={require(`../../assets/images/icon${props.uid}.png`)}
         alt="icon"

@@ -1,7 +1,56 @@
 .ClpPost {
-    background-color: white;
-    border: 1px solid ;
-    width: 60%;
-    margin: 0 auto;
-    padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 0.2fr 0.2fr;
+  background-color: white;
+  border-bottom: 1px solid;
+  width: 60%;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.ClpPost:hover {
+    background-color: rgba(0,0,0,.1);
+}
+
+.from-user {
+  display: flex;
+  align-items: center;
+}
+
+.from-user-icon {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.from-user-name {
+  display: inline-block;
+}
+
+.text {
+  margin: 10px 0 0 71px;
+  width: 70%;
+  word-break: break-all;
+}
+
+.ClpClapIcon {
+  margin: 20px 10px 0 0;
+}
+
+.to-user-icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.material-icons {
+    font-size: 42px;
+    color: rgba(0,0,0,.2);
 }

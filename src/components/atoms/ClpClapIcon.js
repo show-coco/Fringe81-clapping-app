@@ -4,7 +4,6 @@ import "../../assets/styles/ClpClapIcon.css"
 // https://codepen.io/ohansemmanuel/pen/dVdvJQ
 
 function ClpClapIcon(props) {
-  console.log(props.id)
   return (
     <button id="clap" className="ClpClapIcon" value={props.id} onClick={props.handleClickClapIcon}>
       <span>
