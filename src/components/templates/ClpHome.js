@@ -9,7 +9,9 @@ class ClpHome extends React.Component {
     this.handleToUserChange = this.handleToUserChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.users = props.users;
+    this.handleClickClapIcon = this.handleClickClapIcon.bind(this);
+    this.users = this.props.users;
+    this.posts = this.props.posts;
     this.state = {
       fromUser: {
         id: this.users[0].id,
@@ -50,9 +52,6 @@ class ClpHome extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(
-      `${this.state.fromUser.name}が${this.state.toUser.name}に${this.state.toUser.text}と賞賛しています`
-    );
     let posts = JSON.parse(localStorage.getItem("posts"));
     const prevId = posts.length - 1;
     const post = {
@@ -65,6 +64,17 @@ class ClpHome extends React.Component {
     posts.push(post);
     localStorage.setItem("posts", JSON.stringify(posts));
     // event.preventDefault();
+  }
+
+  handleClickClapIcon(event) {
+    console.log(this.users)
+    this.users[this.state.fromUser.id].canClapNum--;
+    let post = this.posts[event.currentTarget.value];
+    this.users[post.toUserId].clappedNum++;
+    post.clappedNum++;
+    localStorage.setItem("posts", JSON.stringify(this.posts));
+    localStorage.setItem("users", JSON.stringify(this.users));
+    event.preventDefault();
   }
 
   render() {
@@ -89,7 +99,7 @@ class ClpHome extends React.Component {
           toUser={this.state.toUser}
           users={users}
         ></ClpPostForm>
-        <ClpPosts></ClpPosts>
+        <ClpPosts handleClickClapIcon={this.handleClickClapIcon}></ClpPosts>
       </div>
     );
   }

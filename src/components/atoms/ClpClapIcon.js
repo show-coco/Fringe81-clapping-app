@@ -3,9 +3,10 @@ import "../../assets/styles/ClpClapIcon.css"
 
 // https://codepen.io/ohansemmanuel/pen/dVdvJQ
 
-function ClpClapIcon() {
+function ClpClapIcon(props) {
+  console.log(props.id)
   return (
-    <button id="clap" className="ClpClapIcon">
+    <button id="clap" className="ClpClapIcon" value={props.id} onClick={props.handleClickClapIcon}>
       <span>
         <svg
           id="clap-icon"

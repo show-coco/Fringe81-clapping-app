@@ -10,7 +10,10 @@ class ClpPost extends React.Component {
         <ClpIcon uid={this.props.fromUserId}></ClpIcon>
         <ClpIcon uid={this.props.toUserId}></ClpIcon>
         {this.props.text}
-        <ClpClapIcon></ClpClapIcon>
+        <ClpClapIcon
+          id={this.props.id}
+          handleClickClapIcon={this.props.handleClickClapIcon}
+        ></ClpClapIcon>
         {this.props.clappedNum}
       </div>
     );

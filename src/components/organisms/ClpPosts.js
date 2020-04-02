@@ -14,6 +14,7 @@ class ClpPosts extends React.Component {
           clappedNum={post.clappedNum}
           id={post.id}
           key={post.id}
+          handleClickClapIcon={this.props.handleClickClapIcon}
         ></ClpPost>
       );
     });

@@ -31,15 +31,22 @@ const Users = [
 ];
 
 function App() {
-  localStorage.setItem("users", JSON.stringify(Users));
-  !localStorage.getItem("posts")
-    ? localStorage.setItem("posts", JSON.stringify([]))
-    : "";
-  const users = JSON.parse(localStorage.getItem("users"));
+  let posts;
+  let users;
+  if (!localStorage.getItem("users")) {
+    localStorage.setItem("users", JSON.stringify(Users));
+  } else {
+    users = JSON.parse(localStorage.getItem("users"));
+  }
+  if (!localStorage.getItem("posts")) {
+    localStorage.setItem("posts", JSON.stringify([]));
+  } else {
+    posts = JSON.parse(localStorage.getItem("posts"));
+  }
 
   return (
     <div className="App">
-      <ClpHome users={users}></ClpHome>
+      <ClpHome users={users} posts={posts}></ClpHome>
     </div>
   );
 }
