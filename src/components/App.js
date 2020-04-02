@@ -33,13 +33,15 @@ const Users = [
 function App() {
   let posts;
   let users;
-  if (!localStorage.getItem("users")) {
-    localStorage.setItem("users", JSON.stringify(Users));
-  } else {
+  if (localStorage.getItem("users")) {
     users = JSON.parse(localStorage.getItem("users"));
+  } else {
+    localStorage.setItem("users", JSON.stringify(Users));
+    users = Users;
   }
   if (!localStorage.getItem("posts")) {
     localStorage.setItem("posts", JSON.stringify([]));
+    posts = []
   } else {
     posts = JSON.parse(localStorage.getItem("posts"));
   }

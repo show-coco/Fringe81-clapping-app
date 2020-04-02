@@ -10,25 +10,27 @@ class ClpHome extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClickClapIcon = this.handleClickClapIcon.bind(this);
-    this.users = this.props.users;
-    this.posts = this.props.posts;
     this.state = {
       fromUser: {
-        id: this.users[0].id,
-        name: this.users[0].name
+        id: this.props.users[0].id,
+        name: this.props.users[0].name,
+        canClapNum: this.props.users[0].canClapNum,
+        clappedNum: this.props.users[0].clappedNum
       },
       toUser: {
-        id: this.users[0].id,
-        name: this.users[0].name,
+        id: this.props.users[0].id,
+        name: this.props.users[0].name,
         text: ""
-      }
+      },
+      posts: this.props.posts,
+      users: this.props.users
     };
   }
 
   handleFromUserChange(event) {
     const newFromUser = Object.assign({}, this.state.fromUser);
     newFromUser.id = event.target.value;
-    newFromUser.name = this.users[event.target.value].name;
+    newFromUser.name = this.state.users[event.target.value].name;
     this.setState({
       fromUser: newFromUser
     });
@@ -37,7 +39,7 @@ class ClpHome extends React.Component {
   handleToUserChange(event) {
     const newToUser = Object.assign({}, this.state.toUser);
     newToUser.id = event.target.value;
-    newToUser.name = this.users[event.target.value].name;
+    newToUser.name = this.state.users[event.target.value].name;
     this.setState({
       toUser: newToUser
     });
@@ -67,13 +69,20 @@ class ClpHome extends React.Component {
   }
 
   handleClickClapIcon(event) {
-    console.log(this.users)
-    this.users[this.state.fromUser.id].canClapNum--;
-    let post = this.posts[event.currentTarget.value];
-    this.users[post.toUserId].clappedNum++;
+    let newUsers = Object.assign({}, this.state.users);
+    let newPosts = Object.assign({}, this.state.posts);
+    let post = newPosts[event.currentTarget.value];
+    const fromUserId = this.state.fromUser.id
+    const toUserId = post.toUserId;
+
+    newUsers[fromUserId].canClapNum--;
+    newUsers[toUserId].clappedNum++;
     post.clappedNum++;
-    localStorage.setItem("posts", JSON.stringify(this.posts));
-    localStorage.setItem("users", JSON.stringify(this.users));
+
+    this.setState(newUsers);
+    this.setState(newPosts);
+    localStorage.setItem("posts", JSON.stringify(this.state.posts));
+    localStorage.setItem("users", JSON.stringify(this.state.users));
     event.preventDefault();
   }
 
@@ -99,7 +108,10 @@ class ClpHome extends React.Component {
           toUser={this.state.toUser}
           users={users}
         ></ClpPostForm>
-        <ClpPosts handleClickClapIcon={this.handleClickClapIcon}></ClpPosts>
+        <ClpPosts
+          handleClickClapIcon={this.handleClickClapIcon}
+          posts={this.state.posts}
+        ></ClpPosts>
       </div>
     );
   }
