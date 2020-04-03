@@ -54,3 +54,14 @@
     font-size: 42px;
     color: rgba(0,0,0,.2);
 }
+
+.inner {
+  position: relative;
+}
+
+.created-at {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  color: gray;
+}

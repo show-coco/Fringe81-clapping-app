@@ -11,6 +11,7 @@ function ClpPosts(props)  {
           fromUserId={post.fromUserId}
           toUserId={post.toUserId}
           clappedNum={post.clappedNum}
+          createdAt={post.createdAt}
           id={post.id}
           key={post.id}
           handleClickClapIcon={props.handleClickClapIcon}

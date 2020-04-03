@@ -55,13 +55,22 @@ class ClpHome extends React.Component {
 
   handleSubmit(event) {
     let posts = JSON.parse(localStorage.getItem("posts"));
+    const date = new Date();
+    const year = date.getFullYear();
+    const month =  ("0"+(date.getMonth() + 1)).slice(-2)
+    const day = ("0"+date.getDate()).slice(-2);
+    const hours = ("0"+date.getHours()).slice(-2);
+    const minutes = ("0"+date.getMinutes()).slice(-2);
+    const now = `${year}/${month}/${day} ${hours}:${minutes}`;
     const prevId = posts.length - 1;
+
     const post = {
       id: prevId + 1,
       toUserId: this.state.toUser.id,
       fromUserId: this.state.fromUser.id,
       text: this.state.toUser.text,
-      clappedNum: 0
+      clappedNum: 0,
+      createdAt: now
     };
     posts.push(post);
     localStorage.setItem("posts", JSON.stringify(posts));
@@ -72,7 +81,7 @@ class ClpHome extends React.Component {
     let newUsers = Object.assign({}, this.state.users);
     let newPosts = Object.assign({}, this.state.posts);
     let post = newPosts[event.currentTarget.value];
-    const fromUserId = this.state.fromUser.id
+    const fromUserId = this.state.fromUser.id;
     const toUserId = post.toUserId;
 
     newUsers[fromUserId].canClapNum--;

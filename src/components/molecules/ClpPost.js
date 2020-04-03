@@ -7,7 +7,7 @@ class ClpPost extends React.Component {
   render() {
     return (
       <div className="ClpPost">
-        <div>
+        <div className="inner">
           <div className="from-user">
             <div className="from-user-icon">
               <ClpIcon uid={this.props.fromUserId}></ClpIcon>
@@ -19,9 +19,12 @@ class ClpPost extends React.Component {
             id={this.props.id}
             handleClickClapIcon={this.props.handleClickClapIcon}
           ></ClpClapIcon>
-          {this.props.clappedNum}
+          <span>{this.props.clappedNum}</span>
+          <span className="created-at">{this.props.createdAt}</span>
         </div>
-        <div className="arrow"><i className="material-icons">send</i></div>
+        <div className="arrow">
+          <i className="material-icons">send</i>
+        </div>
         <div>
           <div className="to-user-icon">
             <ClpIcon
