@@ -84,7 +84,7 @@ class ClpHome extends React.Component {
     const fromUserId = this.state.fromUser.id;
     const toUserId = post.toUserId;
 
-    newUsers[fromUserId].canClapNum--;
+    newUsers[fromUserId].canClapNum -= 2;
     newUsers[toUserId].clappedNum++;
     post.clappedNum++;
 
