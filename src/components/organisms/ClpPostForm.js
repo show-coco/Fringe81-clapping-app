@@ -13,7 +13,7 @@ class ClpPostForm extends React.Component {
           users={this.props.users}
         ></ClpCurrentUser>
         <ClpCommentForm
-          options={this.props.options}
+          options={this.props.toOptions}
           users={this.props.users}
           handleToUserChange={this.props.handleToUserChange}
           handleInputChange={this.props.handleInputChange}
