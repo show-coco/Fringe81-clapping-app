@@ -7,12 +7,8 @@ function ClpPosts(props) {
   const ClpPosts = posts.map(post => {
     return (
       <ClpPost
-        text={post.text}
-        fromUserId={post.fromUserId}
-        toUserId={post.toUserId}
-        clappedNum={post.clappedNum}
+        post={post}
         canClapNum={props.canClapNum}
-        createdAt={post.createdAt}
         id={post.id}
         key={post.id}
         handleClickClapIcon={props.handleClickClapIcon}

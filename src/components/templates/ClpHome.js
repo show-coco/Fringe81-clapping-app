@@ -70,7 +70,8 @@ class ClpHome extends React.Component {
       fromUserId: this.state.fromUser.id,
       text: this.state.toUser.text,
       clappedNum: 0,
-      createdAt: now
+      createdAt: now,
+      clapUsers: [],
     };
     posts.push(post);
     localStorage.setItem("posts", JSON.stringify(posts));
@@ -87,7 +88,17 @@ class ClpHome extends React.Component {
     if(newUsers[fromUserId].canClapNum < 2) {
       return
     }
-
+    
+    const fromUserIds = post.clapUsers.map( clapUser => clapUser.fromUserId)
+    const index = fromUserIds.indexOf(fromUserId);
+    if(index === -1) {
+      post.clapUsers.push({fromUserId, count: 1})
+    }else if(post.clapUsers[index].count < 15){
+      post.clapUsers[index].count++;
+    }else {
+      return
+    }
+    
     newUsers[fromUserId].canClapNum -= 2;
     newUsers[toUserId].clappedNum++;
     post.clappedNum++;

@@ -10,18 +10,18 @@ class ClpPost extends React.Component {
         <div className="inner">
           <div className="from-user">
             <div className="from-user-icon">
-              <ClpIcon uid={this.props.fromUserId}></ClpIcon>
+              <ClpIcon uid={this.props.post.fromUserId}></ClpIcon>
             </div>
             <div className="from-user-name">Mayuko</div>
           </div>
-          <div className="text">{this.props.text}</div>
+          <div className="text">{this.props.post.text}</div>
           <ClpClapIcon
             id={this.props.id}
             handleClickClapIcon={this.props.handleClickClapIcon}
-            canClapNum={this.props.canClapNum}
+            canClapNum={this.props.post.canClapNum}
           ></ClpClapIcon>
-          <span>{this.props.clappedNum}</span>
-          <span className="created-at">{this.props.createdAt}</span>
+          <span>{this.props.post.clappedNum}</span>
+          <span className="created-at">{this.props.post.createdAt}</span>
         </div>
         <div className="arrow">
           <i className="material-icons">send</i>
@@ -30,7 +30,7 @@ class ClpPost extends React.Component {
           <div className="to-user-icon">
             <ClpIcon
               className="to-user-icon"
-              uid={this.props.toUserId}
+              uid={this.props.post.toUserId}
             ></ClpIcon>
           </div>
         </div>
