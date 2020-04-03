@@ -84,6 +84,10 @@ class ClpHome extends React.Component {
     const fromUserId = this.state.fromUser.id;
     const toUserId = post.toUserId;
 
+    if(newUsers[fromUserId].canClapNum < 2) {
+      return
+    }
+
     newUsers[fromUserId].canClapNum -= 2;
     newUsers[toUserId].clappedNum++;
     post.clappedNum++;
@@ -120,6 +124,7 @@ class ClpHome extends React.Component {
         <ClpPosts
           handleClickClapIcon={this.handleClickClapIcon}
           posts={this.state.posts}
+          canClapNum={this.state.fromUser.canClapNum}
         ></ClpPosts>
       </div>
     );

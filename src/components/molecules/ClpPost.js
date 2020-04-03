@@ -18,6 +18,7 @@ class ClpPost extends React.Component {
           <ClpClapIcon
             id={this.props.id}
             handleClickClapIcon={this.props.handleClickClapIcon}
+            canClapNum={this.props.canClapNum}
           ></ClpClapIcon>
           <span>{this.props.clappedNum}</span>
           <span className="created-at">{this.props.createdAt}</span>
