@@ -11,15 +11,6 @@ class ClpHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClickClapIcon = this.handleClickClapIcon.bind(this);
     this.toOptions = [];
-    this.props.users.forEach(user => {
-      if (user.id != 0) {
-        this.toOptions.push(
-          <option value={user.id} key={user.id}>
-            {user.name}
-          </option>
-        );
-      }
-    });
     this.state = {
       fromUser: {
         id: this.props.users[0].id,
@@ -54,16 +45,6 @@ class ClpHome extends React.Component {
       newToUser.id = users[1].id;
       newToUser.name = users[1].name;
     }
-    this.toOptions = [];
-    users.forEach(user => {
-      if (user.id != newFromUser.id) {
-        this.toOptions.push(
-          <option value={user.id} key={user.id}>
-            {user.name}
-          </option>
-        );
-      }
-    });
     this.setState({ toUser: newToUser });
   }
 
@@ -153,6 +134,16 @@ class ClpHome extends React.Component {
           {user.name}
         </option>
       );
+    });
+    this.toOptions = []
+    this.props.users.forEach(user => {
+      if (user.id != this.state.fromUser.id) {
+        this.toOptions.push(
+          <option value={user.id} key={user.id}>
+            {user.name}
+          </option>
+        );
+      }
     });
 
     return (
