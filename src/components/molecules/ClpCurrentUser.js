@@ -7,7 +7,7 @@ class ClpCurrentUser extends React.Component {
   render() {
     return (
       <div className="ClpCurrentUser">
-        <h1>Timeline</h1>
+        <h2>あなた</h2>
         <div className="user">
           <div>
             <ClpIcon uid={this.props.id}></ClpIcon>
