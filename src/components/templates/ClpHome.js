@@ -66,6 +66,11 @@ class ClpHome extends React.Component {
   }
 
   handleSubmit(event) {
+    if(this.state.toUser.text.length < 5){
+      event.preventDefault();
+      return
+    }
+
     let posts = JSON.parse(localStorage.getItem("posts"));
     const date = new Date();
     const year = date.getFullYear();
