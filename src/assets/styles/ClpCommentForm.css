@@ -13,10 +13,35 @@
 }
 
 .comment-form {
-    margin-left: 50px;
+  height: 120px;
+  margin-left: 50px;
+  position: relative;
 }
 
 textarea {
-    width: 350px;
-    height: 80px;
+  width: 350px;
+  height: 80px;
+}
+
+.submit-button {
+  display: block;
+  padding: 10px 40px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  background: #3498db;
+  border: none;
+  outline: none;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); */
+}
+
+.submit-button:hover {
+  color: white;
+  background-color: #34495e;
+}
+
+.submit-button:active {
+  color: white;
+  background-color: #2c3e50;
 }

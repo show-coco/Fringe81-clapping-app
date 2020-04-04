@@ -19,7 +19,7 @@ class ClpCommentForm extends React.Component {
               onChange={this.props.handleInputChange}
               placeholder="あなたの気持ち相手に伝えよう！"
             />
-            <input type="submit" value="投稿" />
+            <button type="submit" className="submit-button">投稿</button>
           </form>
         </div>
       </div>
