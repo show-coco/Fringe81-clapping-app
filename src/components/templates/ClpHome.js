@@ -162,6 +162,7 @@ class ClpHome extends React.Component {
         <ClpPosts
           handleClickClapIcon={this.handleClickClapIcon}
           posts={this.state.posts}
+          users={this.state.users}
           canClapNum={this.state.fromUser.canClapNum}
         ></ClpPosts>
       </div>

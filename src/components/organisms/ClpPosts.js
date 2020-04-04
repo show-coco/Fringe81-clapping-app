@@ -8,6 +8,7 @@ function ClpPosts(props) {
     return (
       <ClpPost
         post={post}
+        users={props.users}
         canClapNum={props.canClapNum}
         id={post.id}
         key={post.id}

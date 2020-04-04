@@ -2,9 +2,33 @@ import React from "react";
 import ClpIcon from "../atoms/ClpIcon";
 import ClpClapIcon from "../atoms/ClpClapIcon";
 import "../../assets/styles/ClpPost.css";
+/* eslint no-unused-expressions: "off" */
 
 class ClpPost extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
+    this.handleOnMouseOut = this.handleOnMouseOut.bind(this);
+    this.clapUsers = React.createRef();
+  }
+
+  handleOnMouseOver() {
+    this.clapUsers.current.className = "clap-users";
+  }
+
+  handleOnMouseOut() {
+    this.clapUsers.current.className = "closed";
+  }
+
   render() {
+    const list = this.props.post.clapUsers.map(user => {
+      return (
+        <li key={user.fromUserId}>
+          {this.props.users[user.fromUserId].name} {user.count}
+        </li>
+      );
+    });
+
     return (
       <div className="ClpPost">
         <div className="inner">
@@ -20,7 +44,15 @@ class ClpPost extends React.Component {
             handleClickClapIcon={this.props.handleClickClapIcon}
             canClapNum={this.props.post.canClapNum}
           ></ClpClapIcon>
-          <span>{this.props.post.clappedNum}</span>
+          <span
+            onMouseOver={this.handleOnMouseOver}
+            onMouseOut={this.handleOnMouseOut}
+          >
+            {this.props.post.clappedNum}
+          </span>
+          <span ref={this.clapUsers} className="closed">
+            <ul>{list}</ul>
+          </span>
           <span className="created-at">{this.props.post.createdAt}</span>
         </div>
         <div className="arrow">

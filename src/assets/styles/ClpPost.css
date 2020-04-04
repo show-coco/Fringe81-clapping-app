@@ -1,3 +1,7 @@
+li {
+  list-style: none;
+}
+
 .ClpPost {
   display: grid;
   grid-template-columns: 1fr 0.2fr 0.2fr;
@@ -9,7 +13,7 @@
 }
 
 .ClpPost:hover {
-    background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .from-user {
@@ -51,8 +55,8 @@
 }
 
 .material-icons {
-    font-size: 42px;
-    color: rgba(0,0,0,.2);
+  font-size: 42px;
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .inner {
@@ -64,4 +68,18 @@
   right: 10px;
   bottom: 0;
   color: gray;
+}
+
+.closed {
+  display: none;
+}
+
+.clap-users {
+  position: absolute;
+  color: white;
+  background-color: #485460;
+  z-index: 2;
+  padding: 5px;
+  left: 80px;
+  top: 120px;
 }
