@@ -99,28 +99,25 @@ class ClpHome extends React.Component {
     let newUsers = Object.assign({}, this.state.users);
     let newPosts = Object.assign({}, this.state.posts);
     let post = newPosts[event.currentTarget.value];
-    const fromUserId = this.state.fromUser.id;
+    const currentUserId = this.state.fromUser.id;
+    const fromUserId = post.fromUserId;
     const toUserId = post.toUserId;
 
-    if (newUsers[fromUserId].canClapNum < 2) {
+    if (currentUserId == toUserId || currentUserId == fromUserId || newUsers[currentUserId].canClapNum < 2) {
       return;
     }
 
-    if (toUserId == fromUserId) {
-      return;
-    }
-
-    const fromUserIds = post.clapUsers.map(clapUser => clapUser.fromUserId);
-    const index = fromUserIds.indexOf(fromUserId);
+    const fromUserIds = post.clapUsers.map(clapUser => clapUser.currentUserId);
+    const index = fromUserIds.indexOf(currentUserId);
     if (index === -1) {
-      post.clapUsers.push({ fromUserId, count: 1 });
+      post.clapUsers.push({ currentUserId, count: 1 });
     } else if (post.clapUsers[index].count < 15) {
       post.clapUsers[index].count++;
     } else {
       return;
     }
 
-    newUsers[fromUserId].canClapNum -= 2;
+    newUsers[currentUserId].canClapNum -= 2;
     newUsers[toUserId].clappedNum++;
     post.clappedNum++;
 

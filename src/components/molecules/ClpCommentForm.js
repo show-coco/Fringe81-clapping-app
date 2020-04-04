@@ -6,6 +6,7 @@ class ClpCommentForm extends React.Component {
   render() {
     return (
       <div className="ClpCommentForm">
+      <h2 className="sub-title">相手</h2>
         <div className="user">
           <div>
             <ClpIcon uid={this.props.toUser.id}></ClpIcon>
