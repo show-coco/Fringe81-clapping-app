@@ -107,10 +107,10 @@ class ClpHome extends React.Component {
       return;
     }
 
-    const fromUserIds = post.clapUsers.map(clapUser => clapUser.currentUserId);
+    const fromUserIds = post.clapUsers.map(clapUser => clapUser.clapUserId);
     const index = fromUserIds.indexOf(currentUserId);
     if (index === -1) {
-      post.clapUsers.push({ currentUserId, count: 1 });
+      post.clapUsers.push({ clapUserId: currentUserId, count: 1 });
     } else if (post.clapUsers[index].count < 15) {
       post.clapUsers[index].count++;
     } else {

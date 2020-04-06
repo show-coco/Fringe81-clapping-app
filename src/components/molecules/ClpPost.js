@@ -22,9 +22,10 @@ class ClpPost extends React.Component {
 
   render() {
     const list = this.props.post.clapUsers.map(user => {
+      console.log(user.clapUserId)
       return (
-        <li key={user.fromUserId}>
-          {this.props.users[user.fromUserId].name} {user.count}
+        <li key={user.clapUserId}>
+          {this.props.users[user.clapUserId].name} {user.count}
         </li>
       );
     });
