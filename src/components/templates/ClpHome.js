@@ -119,6 +119,7 @@ class ClpHome extends React.Component {
 
     newUsers[currentUserId].canClapNum -= 2;
     newUsers[toUserId].clappedNum++;
+    newUsers[fromUserId].clappedNum++;
     post.clappedNum++;
 
     this.setState(newUsers);
